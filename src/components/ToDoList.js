@@ -15,7 +15,6 @@ const ToDoList = ({inputText, setInputText, todo, setTodo}) => {
     }
 
     const handleChange = (e) => {
-        
         setInputText(e.target.value)
     }
     const handleClick = (e) => {
@@ -23,9 +22,10 @@ const ToDoList = ({inputText, setInputText, todo, setTodo}) => {
     
         if(inputText !== ""){
             setTodo([
-            ...todo, {text: inputText}
+                ...todo, {text: inputText}
             ])
         } 
+        alert("Enter a Task")
         setInputText("");
     }
 
@@ -36,10 +36,11 @@ const ToDoList = ({inputText, setInputText, todo, setTodo}) => {
 
     return (
         <div>
-            <form>
-                <input onChange={handleChange} value={inputText} type='text'/>
-                <button onClick={handleClick} >Add</button>
+            <form className="field">
+                <input className="text-area" onChange={handleChange} value={inputText} type='text' placeholder="Add Task"/>
+                <button onClick={handleClick} className="submit-btn">Add</button>
             </form>
+                <div className="list">
                     {todo.map((todoitem, index) => (
                     <ToDoItem 
                     remove={handleDelete}
@@ -49,7 +50,8 @@ const ToDoList = ({inputText, setInputText, todo, setTodo}) => {
                     todo={todoitem}
                     setTodo={setTodo}
                     /> 
-                    ))}               
+                    ))}
+                </div>                
         </div>
     )
 }

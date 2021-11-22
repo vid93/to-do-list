@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: khaki;
 }
 
 code {
@@ -14,10 +15,32 @@ code {
 
 .app {
   margin: 10% auto;
-  width: 20%;
-  text-align: center;
+  width: 17%;
+  background-color: khaki;
 }
 .todoitem {
-  margin: 4px;
-  background-color: lawngreen;
+  color: black;
+  cursor: pointer;
+  text-align: center;
+  margin: auto;
+  margin-top: 7px;
+  background-color: lightgoldenrodyellow;
+  width: 90%;
+  border-radius: 3px;
+}
+.field{
+  margin-left: 5%;
+}
+.text-area{
+  border: none;
+  border-radius: 15px;
+  text-align: center;
+}
+.list{
+  margin: auto;
+}
+.submit-btn{
+  color: brown;
+  margin-left: 3%;
+  border-radius: 10px;
 }
