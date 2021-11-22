@@ -4,10 +4,14 @@ import ToDoItem from './ToDoItem';
 
 const ToDoList = ({inputText, setInputText, todo, setTodo}) => {
 
-    const handleDelete = (id) => {
-        const list = todo.filter((el) => el.id !== id)
+    const handleDelete = (e) => {
+       
+        const id = e.target.getAttribute('num')
+
+        const list = todo.filter(el => el !== todo[id])
+
         setTodo(list)
-        console.log(todo);
+
     }
 
     const handleChange = (e) => {
@@ -15,11 +19,11 @@ const ToDoList = ({inputText, setInputText, todo, setTodo}) => {
         setInputText(e.target.value)
     }
     const handleClick = (e) => {
-    
         e.preventDefault()
+    
         if(inputText !== ""){
             setTodo([
-            ...todo, {text: inputText, id: Math.floor(Math.random()*1000)}
+            ...todo, {text: inputText}
             ])
         } 
         setInputText("");
@@ -36,19 +40,16 @@ const ToDoList = ({inputText, setInputText, todo, setTodo}) => {
                 <input onChange={handleChange} value={inputText} type='text'/>
                 <button onClick={handleClick} >Add</button>
             </form>
-            <div>
-                <ol>
-                    {todo.map((todo) => (
+                    {todo.map((todoitem, index) => (
                     <ToDoItem 
-                    key={todo.id}
-                    text={todo.text} 
-                    todo={todo}
-                    setTodo={setTodo}
                     remove={handleDelete}
+                    key={index}
+                    num={index}
+                    text={todoitem.text} 
+                    todo={todoitem}
+                    setTodo={setTodo}
                     /> 
-                    ))}
-                </ol>
-            </div>                
+                    ))}               
         </div>
     )
 }

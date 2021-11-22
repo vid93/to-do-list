@@ -17,3 +17,7 @@ code {
   width: 20%;
   text-align: center;
 }
+.todoitem {
+  margin: 4px;
+  background-color: lawngreen;
+}

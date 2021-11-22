@@ -1,10 +1,10 @@
 import React from "react";
 
-const ToDoItem = ({text, remove}) => {
+const ToDoItem = ({text, remove, num}) => {
 
    
     return (
-        <div onClick={remove}>
+        <div className="todoitem" onClick={remove} num={num}>
             {text}
         </div>
     )
